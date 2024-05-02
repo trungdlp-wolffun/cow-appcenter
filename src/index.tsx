@@ -1,22 +1,22 @@
-import React, { DispatchWithoutAction, FC, useState } from 'react';
-import ReactDOM from 'react-dom/client';
+import React, { DispatchWithoutAction, FC, useState } from "react";
+import ReactDOM from "react-dom/client";
 import {
   useThemeParams,
   WebAppProvider,
-} from '@vkruglikov/react-telegram-web-app';
-import { ConfigProvider, theme } from 'antd';
-import 'antd/dist/reset.css';
+} from "@vkruglikov/react-telegram-web-app";
+import { ConfigProvider, theme } from "antd";
+import "antd/dist/reset.css";
 
-import './index.css';
-import logo from './logo.svg';
+import "./index.css";
+import logo from "./logo.svg";
 
-import MainButtonDemo from './MainButtonDemo';
-import BackButtonDemo from './BackButtonDemo';
-import ShowPopupDemo from './ShowPopupDemo';
-import HapticFeedbackDemo from './HapticFeedbackDemo';
-import ScanQrPopupDemo from './ScanQrPopupDemo';
-import ExpandDemo from './ExpandDemo';
-import useBetaVersion from './useBetaVersion';
+import MainButtonDemo from "./MainButtonDemo";
+import BackButtonDemo from "./BackButtonDemo";
+import ShowPopupDemo from "./ShowPopupDemo";
+import HapticFeedbackDemo from "./HapticFeedbackDemo";
+import ScanQrPopupDemo from "./ScanQrPopupDemo";
+import ExpandDemo from "./ExpandDemo";
+import useBetaVersion from "./useBetaVersion";
 
 const DemoApp: FC<{
   onChangeTransition: DispatchWithoutAction;
@@ -32,7 +32,7 @@ const DemoApp: FC<{
           themeParams.text_color
             ? {
                 algorithm:
-                  colorScheme === 'dark'
+                  colorScheme === "dark"
                     ? theme.darkAlgorithm
                     : theme.defaultAlgorithm,
                 token: {
@@ -56,7 +56,7 @@ const DemoApp: FC<{
           {isBetaVersion && (
             <div className="betaVersion">
               <h3>WARNING: BETA VERSION</h3>
-              <button onClick={() => setActiveBtn(state => !state)}>
+              <button onClick={() => setActiveBtn((state) => !state)}>
                 change button
               </button>
               <button onClick={onChangeTransition}>change </button>
@@ -67,7 +67,7 @@ const DemoApp: FC<{
             <MainButtonDemo
               initialValues={{
                 show: isBetaVersion,
-                text: 'SECOND BUTTON',
+                text: "SECOND BUTTON",
                 progress: true,
               }}
               key="1"
@@ -91,7 +91,7 @@ const DemoApp: FC<{
 };
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement,
+  document.getElementById("root") as HTMLElement
 );
 
 const App = () => {
@@ -100,7 +100,7 @@ const App = () => {
   return (
     <WebAppProvider options={{ smoothButtonsTransition }}>
       <DemoApp
-        onChangeTransition={() => setSmoothButtonsTransition(state => !state)}
+        onChangeTransition={() => setSmoothButtonsTransition((state) => !state)}
       />
     </WebAppProvider>
   );
